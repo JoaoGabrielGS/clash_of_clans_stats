@@ -1,24 +1,31 @@
 <script setup lang="ts">
-import { fetchClashData } from '../_services/clash_api';
-
-const clanData = ref(null);
-
-onMounted(async () => {
-  try {
-    clanData.value = await fetchClashData('clans', { name: 'brasil'});
-  } catch (error) {
-    console.error(error);
-  }
-});
+const openMenu = ref(false);
 </script>
 
 <template>
-    <div class="h-full w-full bg-dark">
-        <div class="w-full h-100">
-            <img src="/src/assets/background.png" alt="Clash" class="h-full w-full object-cover object-[0_10%]" />
-        </div>
+    <div class="h-full w-full flex flex-col items-center justify-center bg-[url('/src/assets/background.png')] bg-cover bg-center overflow-hidden py-6">
+      <div class="bg-dark rounded-2 flex gap-4 flex-col max-w-120 max-h-max pa-6 text-light">
+        <p>Este é um projeto de estudo para explorar a API do Clash of Clans. Aqui você pode buscar informações sobre:</p>
+          <li><strong>Clãs</strong></li>
+          <li><strong>Jogadores</strong></li>
+          <li><strong>Ligas</strong></li>
+          <li><strong>Rankings</strong></li>
+        <p>e muito mais. Experimente acessar os dados e entender como funciona a API! 🚀</p>
 
-        <h1>Informações do Clã</h1>
-        <pre v-if="clanData">{{ clanData }}</pre>
+        <AppBtn class="mx-auto mt-4" @click="openMenu = !openMenu">Abrir Menu</AppBtn>
+      </div>
+
+      <transition name="fade">
+        <AppMenu v-if="openMenu" @close-menu="openMenu = false"/>
+      </transition>
     </div>
 </template>
+
+<style lang="css">
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
+}
+</style>
