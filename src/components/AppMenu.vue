@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { fetchClashData } from '../_services/clash_api';
+const router = useRouter();
 
 const emit = defineEmits<{
     (name: 'closeMenu'): void;
@@ -10,13 +10,13 @@ const searchInputRef = ref('');
 const searchInput = ref('');
 
 async function onSearch() {
-    await fetchClashData('clans', { name: searchInput.value });
+    router.push({ name: searchInputRef.value, query: { name: searchInput.value } });
 }
 </script>
 
 <template>
-    <div class="h-full w-full bg-black bg-opacity-50 absolute flex justify-center items-center">
-        <div class="bg-dark max-h-max pa-8 w-120 rounded-1 !overflow-hidden flex flex-col">
+    <div class="h-full w-full bg-black bg-opacity-50 px-2 absolute flex justify-center items-center">
+        <div class="bg-dark max-h-max pa-8 max-w-120 rounded-1 !overflow-hidden flex flex-col">
             <div class="flex justify-center items-start w-full h-auto ">
                 <div class="flex-1 flex justify-center items-start ml-2">
                     <img src="/src/assets/supercell.png" alt="Clash" class="!w-45 !h-auto" />
