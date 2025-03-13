@@ -9,7 +9,7 @@
 
 <template>
     <div
-      class="border-2 border-solid pa-4 border-t-8 rounded-2 max-w-100 max-h-max"
+      class="border-2 border-solid pa-4 border-t-8 rounded-2 bg-dark"
       :style="{ borderColor: `var(--color-${color})` }" 
     >
         <slot />

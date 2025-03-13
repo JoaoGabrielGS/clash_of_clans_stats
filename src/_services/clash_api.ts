@@ -22,3 +22,8 @@ export async function FindClans<T>(
 
   return await fetchData<T>(endpoint, queryParams);
 }
+
+export async function FindClanByTag<T>(tag: string) {
+  const encodedTag = encodeURIComponent(tag);
+  return await fetchData<T>(`clans/${encodedTag}`);
+}

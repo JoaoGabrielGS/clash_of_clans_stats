@@ -23,13 +23,13 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-span {
+span, p {
   max-width: max-content;
   max-height: max-content;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
