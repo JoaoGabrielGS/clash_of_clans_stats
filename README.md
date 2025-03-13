@@ -9,6 +9,7 @@
   <li><strong>Vue 3</strong>: Framework JavaScript progressivo.</li>
   <li><strong>TypeScript</strong>: Superset de JavaScript que adiciona tipagem estática ao código.</li>
   <li><strong>Uno CSS</strong>: Framework de CSS para estilização utilitária.</li>
+<li><strong>Pinia</strong>: Gerenciamento de estado para Vue 3.</li>
 </ul>
 
 <h2>Como Rodar o Projeto</h2>
